@@ -1,154 +1,355 @@
-import { useEffect, useState } from "react";
-
 import {
+    ArrowRight,
+    Brain,
+    BriefcaseBusiness,
+    Code2,
+    Database,
     Download,
+    ExternalLink,
+    GitBranch,
+    GraduationCap,
     Mail,
+    MapPin,
+    Network,
+    Phone,
+    Server,
+    ShieldCheck,
+    Smartphone,
+    Wrench,
 } from "lucide-react";
 
-import { getProfile } from "../services/profileService";
-import { getSkills } from "../services/skillService";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaReact,
+    FaPython,
+    FaJs,
+    FaHtml5,
+    FaCss3Alt,
+    FaNodeJs,
+    FaDocker,
+    FaGitAlt,
+} from "react-icons/fa6";
+
+import { Link } from "react-router-dom";
 
 
-function About() {
+function About({ profile }) {
 
-    const [profile, setProfile] = useState(null);
-    const [skills, setSkills] = useState([]);
-    const [loading, setLoading] = useState(true);
+    /* =====================================================
+       TECHNICAL CATEGORIES
+    ===================================================== */
+
+    const skillCategories = [
+        {
+            name: "Frontend",
+            icon: Code2,
+            technologies: [
+                { name: "React", icon: FaReact },
+                { name: "JS", icon: FaJs },
+                { name: "HTML", icon: FaHtml5 },
+                { name: "CSS", icon: FaCss3Alt },
+            ],
+        },
+
+        {
+            name: "Backend",
+            icon: Server,
+            technologies: [
+                { name: "Python", icon: FaPython },
+                { name: "Django", text: "DJ" },
+                { name: "Node", icon: FaNodeJs },
+                { name: "API", text: "API" },
+            ],
+        },
+
+        {
+            name: "Database",
+            icon: Database,
+            technologies: [
+                { name: "SQL", text: "SQL" },
+                { name: "PostgreSQL", text: "PG" },
+                { name: "MySQL", text: "MY" },
+                { name: "SQLite", text: "SQ" },
+            ],
+        },
+
+        {
+            name: "Tools",
+            icon: Wrench,
+            technologies: [
+                { name: "Git", icon: FaGitAlt },
+                { name: "GitHub", icon: FaGithub },
+                { name: "VS Code", text: "VS" },
+                { name: "Postman", text: "PM" },
+            ],
+        },
+
+        {
+            name: "AI / ML",
+            icon: Brain,
+            technologies: [
+                { name: "Python", icon: FaPython },
+                { name: "AI", text: "AI" },
+                { name: "ML", text: "ML" },
+                { name: "DL", text: "DL" },
+            ],
+        },
+
+        {
+            name: "DevOps",
+            icon: Network,
+            technologies: [
+                { name: "Docker", icon: FaDocker },
+                { name: "Git", icon: FaGitAlt },
+                { name: "Linux", text: "LIN" },
+                { name: "CI/CD", text: "CI" },
+            ],
+        },
+
+        {
+            name: "Mobile",
+            icon: Smartphone,
+            technologies: [
+                { name: "React Native", icon: FaReact },
+                { name: "Flutter", text: "FL" },
+                { name: "Android", text: "AD" },
+                { name: "Mobile", text: "M" },
+            ],
+        },
+    ];
 
 
-    useEffect(() => {
+    /* =====================================================
+       EDUCATION
+    ===================================================== */
 
-        const loadData = async () => {
+    const education = [
+        {
+            year: "2018",
+            level: "Grade 8",
+            title: "Primary School Leaving Certificate",
+            description:
+                "Completed Grade 8 education and obtained the Primary School Leaving Certificate, establishing a strong foundation for secondary education.",
+            icon: GraduationCap,
+        },
 
-            try {
+        {
+            year: "2023",
+            level: "Grade 12",
+            title: "Ethiopian Secondary School Leaving Certificate Examination",
+            description:
+                "Completed secondary education and took the Ethiopian Secondary School Leaving Certificate Examination, preparing for higher education in computer science.",
+            icon: GraduationCap,
+        },
 
-                const [profileData, skillsData] =
-                    await Promise.all([
-                        getProfile(),
-                        getSkills(),
-                    ]);
-
-                console.log("About profile:", profileData);
-                console.log("About skills:", skillsData);
-
-                setProfile(profileData);
-                setSkills(skillsData);
-
-            } catch (error) {
-
-                console.error(
-                    "Failed to load about page:",
-                    error
-                );
-
-            } finally {
-
-                setLoading(false);
-
-            }
-
-        };
-
-        loadData();
-
-    }, []);
+        {
+            year: "2026",
+            level: "Bachelor's Degree",
+            title: "BSc in Computer Science",
+            institution: "University of Gondar",
+            description:
+                "Completed a Bachelor of Science degree in Computer Science with a foundation in software engineering, web development, databases, networking, algorithms, and computer systems.",
+            icon: GraduationCap,
+        },
+    ];
 
 
-    if (loading) {
-        return (
-            <main className="section">
-                <div className="container">
-                    <p>Loading profile...</p>
-                </div>
-            </main>
-        );
-    }
+    /* =====================================================
+       EXPERIENCE
+    ===================================================== */
+
+    const experience = [
+        {
+            year: "2025",
+            type: "INTERNSHIP",
+            title: "Networking Intern",
+            organization: "University of Gondar Data Center",
+            description:
+                "Gained practical experience in computer networking, network administration, infrastructure, troubleshooting, IT support, and data center operations.",
+            icon: Network,
+        },
+
+        {
+            year: "2026",
+            type: "FINAL YEAR PROJECT",
+            title: "AI-Based E-Learning and Remote Education System",
+            organization: "University of Gondar",
+            description:
+                "Designed and developed an AI-based web platform for online learning and remote education. The system supports course management, assignment submission, virtual learning, and an AI assistant to support students and instructors.",
+            icon: Brain,
+        },
+
+        {
+            year: "2026 — PRESENT",
+            type: "PERSONAL PROJECT",
+            title: "Ethiora — Ethiopian Online Marketplace",
+            organization: "In Progress",
+            description:
+                "Building a modern Ethiopian online marketplace that connects customers and local businesses through digital commerce. The platform focuses on local products, modern shopping experiences, product discovery, and scalable full-stack architecture.",
+            icon: BriefcaseBusiness,
+        },
+    ];
+
+
+    /* =====================================================
+       SOCIAL LINKS
+    ===================================================== */
+
+    const socialLinks = [
+        profile?.github && {
+            label: "GitHub",
+            href: profile.github,
+            icon: FaGithub,
+        },
+
+        profile?.linkedin && {
+            label: "LinkedIn",
+            href: profile.linkedin,
+            icon: FaLinkedin,
+        },
+
+        profile?.email && {
+            label: "Email",
+            href: `mailto:${profile.email}`,
+            icon: Mail,
+        },
+
+        profile?.phone && {
+            label: "Phone",
+            href: `tel:${profile.phone}`,
+            icon: Phone,
+        },
+    ].filter(Boolean);
 
 
     return (
-        <main>
+        <main className="about-page">
 
-            {/* HERO */}
 
-            <section className="section about-hero">
+            {/* =====================================================
+                ABOUT INTRO
+            ===================================================== */}
+
+            <section className="section about-intro-section">
 
                 <div className="container">
 
-                    <p className="section-eyebrow">
-                        ABOUT ME
-                    </p>
-
-                    <h1>
-                        {profile?.name || "Tadesse Belay"}
-                    </h1>
-
-                    <h2>
-                        {profile?.title ||
-                            "Software Engineer"}
-                    </h2>
-
-                </div>
-
-            </section>
+                    <div className="about-intro-grid">
 
 
-            {/* PROFILE */}
+                        {/* PROFILE PHOTO */}
 
-            <section className="section">
+                        <div className="about-photo-area">
 
-                <div className="container about-profile-grid">
+                            <div className="about-photo-glow"></div>
 
-                    <div>
+                            <div className="about-photo-frame">
 
-                        <p className="section-eyebrow">
-                            PROFESSIONAL PROFILE
-                        </p>
+                                {profile?.profile_image ? (
 
-                        <h2>
-                            Turning ideas into
-                            practical software.
-                        </h2>
+                                    <img
+                                        src={profile.profile_image}
+                                        alt={
+                                            profile.name ||
+                                            "Tadesse Belay"
+                                        }
+                                        className="about-profile-image"
+                                    />
 
-                    </div>
+                                ) : (
 
+                                    <div className="about-photo-placeholder">
+                                        TB
+                                    </div>
 
-                    <div className="about-profile-text">
+                                )}
 
-                        <p>
-                            {profile?.bio ||
-                                "I am a Computer Science graduate with a strong foundation in software engineering, web development, computer networking, and databases."}
-                        </p>
-
-                        <p>
-                            I enjoy building full-stack applications
-                            and solving real-world problems through
-                            technology.
-                        </p>
+                            </div>
 
 
-                        <div className="about-actions">
+                            <div className="about-photo-decoration decoration-one"></div>
 
-                            <a
-                                href="/resume.pdf"
-                                download
-                                className="btn btn-primary"
-                            >
-                                <Download size={18} />
-                                Download CV
-                            </a>
+                            <div className="about-photo-decoration decoration-two"></div>
+
+                            <div className="about-photo-status">
+
+                                <span></span>
+
+                                Available for opportunities
+
+                            </div>
+
+                        </div>
 
 
-                            {profile?.email && (
+                        {/* INTRODUCTION */}
 
-                                <a
-                                    href={`mailto:${profile.email}`}
-                                    className="btn btn-outline"
+                        <div className="about-intro-content">
+
+                            <p className="about-eyebrow">
+                                ABOUT ME
+                            </p>
+
+                            <h1>
+                                {profile?.name ||
+                                    "Tadesse Belay"}
+                            </h1>
+
+                            <h2>
+                                {profile?.professional_title ||
+                                    "Software Developer"}
+                            </h2>
+
+
+                            <div className="about-location">
+
+                                <MapPin size={15} />
+
+                                <span>
+                                    {profile?.location ||
+                                        "Addis Ababa"}
+                                </span>
+
+                            </div>
+
+
+                            <p className="about-intro-text">
+                                Computer Science graduate focused on
+                                building practical, modern and
+                                user-focused software solutions.
+                            </p>
+
+
+                            <div className="about-intro-actions">
+
+                                {profile?.resume && (
+
+                                    <a
+                                        href={profile.resume}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="about-download"
+                                    >
+
+                                        <Download size={16} />
+
+                                        Download CV
+
+                                    </a>
+
+                                )}
+
+
+                                <Link
+                                    to="/projects"
+                                    className="about-project-link"
                                 >
-                                    <Mail size={18} />
-                                    Email Me
-                                </a>
+                                    Explore Projects
+                                    <ArrowRight size={16} />
+                                </Link>
 
-                            )}
+                            </div>
 
                         </div>
 
@@ -159,100 +360,155 @@ function About() {
             </section>
 
 
-            {/* SOCIAL LINKS */}
 
-            <section className="section">
+            {/* =====================================================
+                PROFESSIONAL PROFILE
+            ===================================================== */}
+
+            <section className="section about-profile-section">
 
                 <div className="container">
 
-                    <p className="section-eyebrow">
-                        CONNECT
-                    </p>
-
-                    <h2>
-                        Find me online.
-                    </h2>
+                    <div className="about-profile-grid">
 
 
-                    <div className="social-cards">
+                        <div className="about-profile-label">
 
-                        {profile?.github_url && (
+                            <p className="about-eyebrow">
+                                PROFESSIONAL PROFILE
+                            </p>
 
-    <a
-        href={profile.github_url}
-        target="_blank"
-        rel="noreferrer"
-        className="social-card"
-    >
+                            <h2>
+                                Turning ideas into practical software.
+                            </h2>
 
-        <span className="social-icon">
-            GH
-        </span>
-
-        <div>
-            <span>
-                GitHub
-            </span>
-
-            <small>
-                View my code
-            </small>
-        </div>
-
-    </a>
-
-)}
+                        </div>
 
 
-                       {profile?.linkedin_url && (
+                        <div className="about-profile-content">
 
-    <a
-        href={profile.linkedin_url}
-        target="_blank"
-        rel="noreferrer"
-        className="social-card"
-    >
+                            <p>
+                                {profile?.bio ||
+                                    "Computer Science graduate with a strong foundation in software development, web technologies, computer networking, and databases. I build modern full-stack applications using React, Django, Python, and PostgreSQL, with a growing interest in artificial intelligence, machine learning, and cybersecurity."}
+                            </p>
 
-        <span className="social-icon">
-            IN
-        </span>
+                        </div>
 
-        <div>
-            <span>
-                LinkedIn
-            </span>
+                    </div>
 
-            <small>
-                Connect with me
-            </small>
-        </div>
+                </div>
 
-    </a>
-
-)}
+            </section>
 
 
-                        {profile?.email && (
 
-                            <a
-                                href={`mailto:${profile.email}`}
-                                className="social-card"
-                            >
+            {/* =====================================================
+                TECHNICAL SKILLS
+            ===================================================== */}
 
-                                <Mail size={24} />
+            <section className="section about-skills-section">
 
-                                <div>
-                                    <span>
-                                        Email
-                                    </span>
+                <div className="container">
 
-                                    <small>
-                                        Contact me
-                                    </small>
-                                </div>
+                    <div className="about-section-heading">
 
-                            </a>
+                        <div>
 
+                            <p className="about-eyebrow">
+                                TECHNICAL SKILLS
+                            </p>
+
+                            <h2>
+                                Technologies I use.
+                            </h2>
+
+                        </div>
+
+                        <p>
+                            Explore my technical skills by category.
+                        </p>
+
+                    </div>
+
+
+                    <div className="about-skill-orbit-grid">
+
+                        {skillCategories.map(
+                            (category, categoryIndex) => {
+
+                                const CategoryIcon =
+                                    category.icon;
+
+                                return (
+
+                                    <article
+                                        key={category.name}
+                                        className="about-skill-orbit"
+                                    >
+
+                                        <div className="skill-orbit-ring"></div>
+
+                                        <div className="skill-orbit-ring ring-two"></div>
+
+
+                                        <div className="skill-orbit-center">
+
+                                            <CategoryIcon size={22} />
+
+                                            <strong>
+                                                {category.name}
+                                            </strong>
+
+                                        </div>
+
+
+                                        {category.technologies.map(
+                                            (technology, index) => {
+
+                                                const TechIcon =
+                                                    technology.icon;
+
+                                                return (
+
+                                                    <div
+                                                        key={technology.name}
+                                                        className={`skill-floating-logo logo-${index + 1}`}
+                                                    >
+
+                                                        {TechIcon ? (
+
+                                                            <TechIcon
+                                                                size={17}
+                                                            />
+
+                                                        ) : (
+
+                                                            <span>
+                                                                {
+                                                                    technology.text
+                                                                }
+                                                            </span>
+
+                                                        )}
+
+                                                        <small>
+                                                            {
+                                                                technology.name
+                                                            }
+                                                        </small>
+
+                                                    </div>
+
+                                                );
+
+                                            }
+                                        )}
+
+                                    </article>
+
+                                );
+
+                            }
                         )}
 
                     </div>
@@ -262,57 +518,90 @@ function About() {
             </section>
 
 
-            {/* SKILLS */}
 
-            <section className="section about-skills">
+            {/* =====================================================
+                EDUCATION
+            ===================================================== */}
+
+            <section className="section about-education-section">
 
                 <div className="container">
 
-                    <p className="section-eyebrow">
-                        TECHNICAL SKILLS
-                    </p>
+                    <div className="about-section-heading">
 
-                    <h2>
-                        Technologies I use.
-                    </h2>
+                        <div>
+
+                            <p className="about-eyebrow">
+                                EDUCATION
+                            </p>
+
+                            <h2>
+                                Academic background.
+                            </h2>
+
+                        </div>
+
+                    </div>
 
 
-                    <div className="about-skills-grid">
+                    <div className="about-timeline">
 
-                        {skills.length > 0 ? (
+                        {education.map((item) => {
 
-                            skills.map((skill, index) => (
+                            const Icon = item.icon;
 
-                                <div
-                                    className="about-skill-card"
-                                    key={skill.id || index}
+                            return (
+
+                                <article
+                                    key={item.year}
+                                    className="about-timeline-item"
                                 >
 
-                                    <span>
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
+                                    <div className="timeline-year">
+                                        {item.year}
+                                    </div>
 
-                                    <h3>
-                                        {skill.name}
-                                    </h3>
 
-                                    {skill.category && (
+                                    <div className="timeline-line">
+
+                                        <span className="timeline-dot">
+
+                                            <Icon size={15} />
+
+                                        </span>
+
+                                    </div>
+
+
+                                    <div className="timeline-content">
+
+                                        <span className="timeline-type">
+                                            {item.level}
+                                        </span>
+
+                                        <h3>
+                                            {item.title}
+                                        </h3>
+
+                                        {item.institution && (
+
+                                            <h4>
+                                                {item.institution}
+                                            </h4>
+
+                                        )}
+
                                         <p>
-                                            {skill.category}
+                                            {item.description}
                                         </p>
-                                    )}
 
-                                </div>
+                                    </div>
 
-                            ))
+                                </article>
 
-                        ) : (
+                            );
 
-                            <p>
-                                No skills available.
-                            </p>
-
-                        )}
+                        })}
 
                     </div>
 
@@ -321,46 +610,86 @@ function About() {
             </section>
 
 
-            {/* EDUCATION */}
 
-            <section className="section">
+            {/* =====================================================
+                EXPERIENCE
+            ===================================================== */}
+
+            <section className="section about-experience-section">
 
                 <div className="container">
 
-                    <p className="section-eyebrow">
-                        EDUCATION
-                    </p>
-
-                    <h2>
-                        Academic background.
-                    </h2>
-
-
-                    <div className="education-card">
-
-                        <div className="education-year">
-                            2026
-                        </div>
+                    <div className="about-section-heading">
 
                         <div>
 
-                            <h3>
-                                Bachelor of Science
-                                in Computer Science
-                            </h3>
-
-                            <h4>
-                                University of Gondar
-                            </h4>
-
-                            <p>
-                                Computer Science education with
-                                a foundation in software engineering,
-                                algorithms, databases, networking,
-                                web development, and computer systems.
+                            <p className="about-eyebrow">
+                                EXPERIENCE
                             </p>
 
+                            <h2>
+                                Practical experience.
+                            </h2>
+
                         </div>
+
+                    </div>
+
+
+                    <div className="about-timeline experience-timeline">
+
+                        {experience.map((item) => {
+
+                            const Icon = item.icon;
+
+                            return (
+
+                                <article
+                                    key={item.title}
+                                    className="about-timeline-item"
+                                >
+
+                                    <div className="timeline-year">
+                                        {item.year}
+                                    </div>
+
+
+                                    <div className="timeline-line">
+
+                                        <span className="timeline-dot">
+
+                                            <Icon size={15} />
+
+                                        </span>
+
+                                    </div>
+
+
+                                    <div className="timeline-content">
+
+                                        <span className="timeline-type">
+                                            {item.type}
+                                        </span>
+
+                                        <h3>
+                                            {item.title}
+                                        </h3>
+
+                                        <h4>
+                                            {item.organization}
+                                        </h4>
+
+                                        <p>
+                                            {item.description}
+                                        </p>
+
+                                    </div>
+
+                                </article>
+
+                            );
+
+                        })}
 
                     </div>
 
@@ -369,56 +698,150 @@ function About() {
             </section>
 
 
-            {/* EXPERIENCE */}
 
-            <section className="section">
+            {/* =====================================================
+    CONNECT
+===================================================== */}
 
-                <div className="container">
+<section className="section about-connect-section">
 
-                    <p className="section-eyebrow">
-                        EXPERIENCE
-                    </p>
+    <div className="container">
 
-                    <h2>
-                        Practical experience.
-                    </h2>
+        <div className="about-connect">
+
+            {/* LEFT SIDE */}
+            <div className="about-connect-intro">
+
+                <p className="about-eyebrow">
+                    CONNECT
+                </p>
+
+                <h2>
+                    Let's build something together.
+                </h2>
+
+                <p>
+                    I'm interested in connecting with developers,
+                    companies, recruiters, and people working on
+                    interesting technology projects.
+                </p>
+
+            </div>
 
 
-                    <div className="experience-card">
+            {/* RIGHT SIDE — SOCIAL LINKS */}
+            <div className="about-connect-links">
 
-                        <div className="experience-card-year">
-                            2025
-                        </div>
+                {/* GitHub */}
+                {profile?.github && (
+                    <a
+                        href={profile.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="about-social-card"
+                    >
 
-                        <div>
+                        <span className="about-social-icon">
+                            <FaGithub size={21} />
+                        </span>
 
-                            <span className="timeline-type">
-                                INTERNSHIP
-                            </span>
+                        <span className="about-social-info">
+                            <strong>GitHub</strong>
+                            <small>View my projects</small>
+                        </span>
 
-                            <h3>
-                                Networking Intern
-                            </h3>
+                        <ExternalLink
+                            size={15}
+                            className="about-social-arrow"
+                        />
 
-                            <h4>
-                                University of Gondar
-                                Data Center
-                            </h4>
+                    </a>
+                )}
 
-                            <p>
-                                Gained practical experience in
-                                computer networking, infrastructure,
-                                troubleshooting, and data center
-                                operations.
-                            </p>
 
-                        </div>
+                {/* LinkedIn */}
+                {profile?.linkedin && (
+                    <a
+                        href={profile.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="about-social-card"
+                    >
 
-                    </div>
+                        <span className="about-social-icon">
+                            <FaLinkedin size={21} />
+                        </span>
 
-                </div>
+                        <span className="about-social-info">
+                            <strong>LinkedIn</strong>
+                            <small>Connect with me</small>
+                        </span>
 
-            </section>
+                        <ExternalLink
+                            size={15}
+                            className="about-social-arrow"
+                        />
+
+                    </a>
+                )}
+
+
+                {/* Email */}
+                {profile?.email && (
+                    <a
+                        href={`mailto:${profile.email}`}
+                        className="about-social-card"
+                    >
+
+                        <span className="about-social-icon">
+                            <Mail size={21} />
+                        </span>
+
+                        <span className="about-social-info">
+                            <strong>Email</strong>
+                            <small>{profile.email}</small>
+                        </span>
+
+                        <ArrowUpRight
+                            size={15}
+                            className="about-social-arrow"
+                        />
+
+                    </a>
+                )}
+
+
+                {/* Phone */}
+                {profile?.phone && (
+                    <a
+                        href={`tel:${profile.phone}`}
+                        className="about-social-card"
+                    >
+
+                        <span className="about-social-icon">
+                            <Phone size={21} />
+                        </span>
+
+                        <span className="about-social-info">
+                            <strong>Phone</strong>
+                            <small>{profile.phone}</small>
+                        </span>
+
+                        <ArrowUpRight
+                            size={15}
+                            className="about-social-arrow"
+                        />
+
+                    </a>
+                )}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
         </main>
     );
