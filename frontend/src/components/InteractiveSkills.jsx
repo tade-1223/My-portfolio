@@ -107,8 +107,7 @@ function InteractiveSkills() {
     const [rotation, setRotation] =
         useState(0);
 
-    const [paused, setPaused] =
-        useState(false);
+    
 
     const [loading, setLoading] =
         useState(true);
@@ -162,30 +161,24 @@ function InteractiveSkills() {
     =========================================
     */
 
-    useEffect(() => {
+useEffect(() => {
 
-        if (paused) {
-            return;
-        }
+    const interval = setInterval(() => {
 
+        setRotation(
+            previous => previous + 0.15
+        );
 
-        const interval = setInterval(() => {
-
-            setRotation(
-                previous =>
-                    previous + 0.15
-            );
-
-        }, 30);
+    }, 30);
 
 
-        return () => {
+    return () => {
 
-            clearInterval(interval);
+        clearInterval(interval);
 
-        };
+    };
 
-    }, [paused]);
+}, []);
 
 
     /*
@@ -264,44 +257,28 @@ function InteractiveSkills() {
     category around the circle.
     */
 
-    const getPosition = (index) => {
+const getPosition = (index) => {
 
-        const total =
-            CATEGORIES.length;
+    const total = CATEGORIES.length;
 
+    const angle =
+        (360 / total) * index + rotation;
 
-        const angle =
-            (360 / total) *
-                index +
-            rotation;
+    const radians =
+        (angle * Math.PI) / 180;
 
+    const radius = 235;
 
-        const radians =
-            (angle * Math.PI) /
-            180;
+    const x =
+        Math.cos(radians) * radius;
 
+    const y =
+        Math.sin(radians) * radius;
 
-        const radius = 250;
-
-
-        const x =
-            Math.cos(radians) *
-            radius;
-
-
-        const y =
-            Math.sin(radians) *
-            radius;
-
-
-        return {
-
-            transform:
-                `translate(${x}px, ${y}px)`,
-
-        };
-
+    return {
+        transform: `translate(${x}px, ${y}px)`,
     };
+};
 
 
     /*
@@ -341,17 +318,7 @@ function InteractiveSkills() {
 
     return (
 
-        <section
-            className="interactive-skills-section"
-
-            onMouseEnter={() =>
-                setPaused(true)
-            }
-
-            onMouseLeave={() =>
-                setPaused(false)
-            }
-        >
+<section className="interactive-skills-section">
 
             <div className="container">
 
@@ -568,22 +535,11 @@ function InteractiveSkills() {
                             CENTER BUTTON
                         ================================= */}
 
-                        <button
-                            className="orbit-center"
-
-                            onClick={() =>
-                                setPaused(
-                                    previous =>
-                                        !previous
-                                )
-                            }
-
-                            aria-label={
-                                paused
-                                    ? "Resume skills animation"
-                                    : "Pause skills animation"
-                            }
-                        >
+<button
+    className="orbit-center"
+    type="button"
+    aria-label={`${currentCategory.label} skills`}
+>
 
                             <ActiveIcon
                                 size={38}
@@ -599,13 +555,9 @@ function InteractiveSkills() {
                             </strong>
 
 
-                            <span>
-
-                                {paused
-                                    ? "Resume"
-                                    : "Pause"}
-
-                            </span>
+<span>
+    Explore
+</span>
 
                         </button>
 
@@ -656,25 +608,13 @@ function InteractiveSkills() {
                                             )
                                         }
 
-                                        onClick={() => {
+onClick={() => {
 
-                                            setActiveCategory(
-                                                categoryName
-                                            );
+    setActiveCategory(
+        categoryName
+    );
 
-
-                                            /*
-                                            Stop automatic
-                                            rotation when
-                                            user selects
-                                            a category.
-                                            */
-
-                                            setPaused(
-                                                true
-                                            );
-
-                                        }}
+}}
 
                                     >
 

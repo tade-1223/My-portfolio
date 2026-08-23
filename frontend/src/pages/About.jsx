@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
     ArrowRight,
     Brain,
@@ -29,13 +30,46 @@ import {
     FaNodeJs,
     FaDocker,
     FaGitAlt,
-} from "react-icons/fa6";
+} from "react-icons/fa";
 
+import { getCertifications } from "../services/certificationService";
+import { getSocialLinks } from "../services/socialLinkService";
 import { Link } from "react-router-dom";
 
 
 function About({ profile }) {
+const [certifications, setCertifications] = useState([]);
+const [socialLinks, setSocialLinks] = useState([]);
 
+    useEffect(() => {
+
+        const loadAboutData = async () => {
+
+            try {
+
+                const [certificationData, socialData] =
+                    await Promise.all([
+                        getCertifications(),
+                        getSocialLinks(),
+                    ]);
+
+                setCertifications(certificationData);
+                setSocialLinks(socialData);
+
+            } catch (error) {
+
+                console.error(
+                    "Failed to load About data:",
+                    error
+                );
+
+            }
+
+        };
+
+        loadAboutData();
+
+    }, []);
     /* =====================================================
        TECHNICAL CATEGORIES
     ===================================================== */
@@ -154,10 +188,149 @@ function About({ profile }) {
         },
     ];
 
+{/* =====================================================
+    CERTIFICATIONS
+===================================================== */}
 
-    /* =====================================================
+<section className="section about-certifications-section">
+
+    <div className="container">
+
+        <div className="about-section-heading">
+
+            <div>
+
+                <p className="about-eyebrow">
+                    CERTIFICATIONS
+                </p>
+
+                <h2>
+                    Professional learning.
+                </h2>
+
+            </div>
+
+            <p>
+                Certifications and credentials that support
+                my technical development.
+            </p>
+
+        </div>
+
+
+        {certifications.length > 0 ? (
+
+            <div className="certifications-grid">
+
+                {certifications.map((certificate) => (
+
+                    <article
+                        key={certificate.id}
+                        className="certification-card"
+                    >
+
+                        <div className="certification-icon">
+                            <ShieldCheck size={24} />
+                        </div>
+
+
+                        <div className="certification-content">
+
+                            <span className="certification-label">
+                                CERTIFICATION
+                            </span>
+
+
+                            <h3>
+                                {certificate.name}
+                            </h3>
+
+
+                            <p className="certification-organization">
+                                {certificate.organization}
+                            </p>
+
+
+                            <div className="certification-meta">
+
+                                {certificate.issue_date && (
+
+                                    <span>
+                                        Issued{" "}
+                                        {new Date(
+                                            certificate.issue_date
+                                        ).toLocaleDateString(
+                                            "en-US",
+                                            {
+                                                year: "numeric",
+                                                month: "long",
+                                            }
+                                        )}
+                                    </span>
+
+                                )}
+
+                                {certificate.credential_id && (
+
+                                    <span>
+                                        Credential ID:{" "}
+                                        {certificate.credential_id}
+                                    </span>
+
+                                )}
+
+                            </div>
+
+
+                            {certificate.credential_url && (
+
+                                <a
+                                    href={
+                                        certificate.credential_url
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="certification-link"
+                                >
+
+                                    <span>
+                                        Verify Credential
+                                    </span>
+
+                                    <ExternalLink size={15} />
+
+                                </a>
+
+                            )}
+
+                        </div>
+
+                    </article>
+
+                ))}
+
+            </div>
+
+        ) : (
+
+            <div className="certifications-empty">
+
+                <ShieldCheck size={24} />
+
+                <p>
+                    Certifications will be added here.
+                </p>
+
+            </div>
+
+        )}
+
+    </div>
+
+</section>
+    {/* =====================================================
        EXPERIENCE
-    ===================================================== */
+    ===================================================== */}
 
     const experience = [
         {
@@ -196,31 +369,6 @@ function About({ profile }) {
        SOCIAL LINKS
     ===================================================== */
 
-    const socialLinks = [
-        profile?.github && {
-            label: "GitHub",
-            href: profile.github,
-            icon: FaGithub,
-        },
-
-        profile?.linkedin && {
-            label: "LinkedIn",
-            href: profile.linkedin,
-            icon: FaLinkedin,
-        },
-
-        profile?.email && {
-            label: "Email",
-            href: `mailto:${profile.email}`,
-            icon: Mail,
-        },
-
-        profile?.phone && {
-            label: "Phone",
-            href: `tel:${profile.phone}`,
-            icon: Phone,
-        },
-    ].filter(Boolean);
 
 
     return (
@@ -608,7 +756,147 @@ function About({ profile }) {
                 </div>
 
             </section>
+             {/* =====================================================
+    CERTIFICATIONS
+===================================================== */}
 
+<section className="section about-certifications-section">
+
+    <div className="container">
+
+        <div className="about-section-heading">
+
+            <div>
+
+                <p className="about-eyebrow">
+                    CERTIFICATIONS
+                </p>
+
+                <h2>
+                    Professional learning.
+                </h2>
+
+            </div>
+
+            <p>
+                Certifications and credentials
+                that support my technical development.
+            </p>
+
+        </div>
+
+
+        {certifications.length > 0 ? (
+
+            <div className="certifications-grid">
+
+                {certifications.map((certificate) => (
+
+                    <article
+                        key={certificate.id}
+                        className="certification-card"
+                    >
+
+                        <div className="certification-icon">
+
+                            <ShieldCheck size={24} />
+
+                        </div>
+
+
+                        <div className="certification-content">
+
+                            <span className="certification-label">
+                                CERTIFICATION
+                            </span>
+
+
+                            <h3>
+                                {certificate.name}
+                            </h3>
+
+
+                            <p className="certification-organization">
+                                {certificate.organization}
+                            </p>
+
+
+                            {certificate.issue_date && (
+
+                                <p className="certification-date">
+
+                                    Issued{" "}
+                                    {new Date(
+                                        certificate.issue_date
+                                    ).toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                        }
+                                    )}
+
+                                </p>
+
+                            )}
+
+
+                            {certificate.credential_id && (
+
+                                <p className="certification-credential">
+
+                                    Credential ID:{" "}
+                                    {certificate.credential_id}
+
+                                </p>
+
+                            )}
+
+
+                            {certificate.credential_url && (
+
+                                <a
+                                    href={
+                                        certificate.credential_url
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="certification-link"
+                                >
+
+                                    Verify Credential
+
+                                    <ExternalLink size={15} />
+
+                                </a>
+
+                            )}
+
+                        </div>
+
+                    </article>
+
+                ))}
+
+            </div>
+
+        ) : (
+
+            <div className="certifications-empty">
+
+                <ShieldCheck size={24} />
+
+                <p>
+                    No certifications available.
+                </p>
+
+            </div>
+
+        )}
+
+    </div>
+
+</section>
 
 
             {/* =====================================================
@@ -696,10 +984,9 @@ function About({ profile }) {
                 </div>
 
             </section>
+            
 
-
-
-            {/* =====================================================
+{/* =====================================================
     CONNECT
 ===================================================== */}
 
@@ -729,8 +1016,84 @@ function About({ profile }) {
             </div>
 
 
-            {/* RIGHT SIDE — SOCIAL LINKS */}
-            <div className="about-connect-links">
+{/* RIGHT SIDE — SOCIAL LINKS */}
+<div className="about-connect-links">
+
+    {socialLinks.length > 0 ? (
+
+        socialLinks.map((social) => (
+
+            <a
+                key={social.id}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about-social-card"
+            >
+
+                <span className="about-social-icon">
+
+                    {social.platform?.toLowerCase() === "github" && (
+                        <FaGithub size={21} />
+                    )}
+
+                    {social.platform?.toLowerCase() === "linkedin" && (
+                        <FaLinkedin size={21} />
+                    )}
+
+                    {social.platform?.toLowerCase() === "email" && (
+                        <Mail size={21} />
+                    )}
+
+                    {![
+                        "github",
+                        "linkedin",
+                        "email",
+                    ].includes(
+                        social.platform?.toLowerCase()
+                    ) && (
+                        <ExternalLink size={21} />
+                    )}
+
+                </span>
+
+
+                <span className="about-social-info">
+
+                    <strong>
+                        {social.platform}
+                    </strong>
+
+                    <small>
+                        {social.label ||
+                            social.url}
+                    </small>
+
+                </span>
+
+
+                <ExternalLink
+                    size={15}
+                    className="about-social-arrow"
+                />
+
+            </a>
+
+        ))
+
+    ) : (
+
+        <div className="about-social-empty">
+
+            <p>
+                Social links will appear here.
+            </p>
+
+        </div>
+
+    )}
+
+</div>
 
                 {/* GitHub */}
                 {profile?.github && (
@@ -838,8 +1201,6 @@ function About({ profile }) {
             </div>
 
         </div>
-
-    </div>
 
 </section>
 

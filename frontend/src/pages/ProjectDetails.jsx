@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import SkillIcon from "../components/SkillIcon";
 import {
     ArrowLeft,
     ExternalLink,
@@ -205,45 +205,51 @@ function ProjectDetails() {
 
 
                     {/* =================================================
-                        TECHNOLOGIES
-                    ================================================= */}
+    TECHNOLOGIES
+================================================= */}
 
-                    {project.technologies &&
-                        project.technologies.length > 0 && (
+{project.technologies &&
+    project.technologies.length > 0 && (
 
-                        <div className="project-detail-tech">
+    <div className="project-details-technologies">
 
-                            <p className="project-detail-section-label">
-                                TECHNOLOGIES
-                            </p>
+        <p className="project-details-label">
+            TECHNOLOGIES
+        </p>
 
-                            <div className="project-detail-tech-list">
+        <div className="project-details-tech-list">
 
-                                {project.technologies.map(
-                                    (technology, index) => (
+            {project.technologies.map((technology) => (
 
-                                    <span
-                                        key={
-                                            technology.id ||
-                                            index
-                                        }
-                                        className="project-detail-tech-item"
-                                    >
+                <div
+                    key={technology.id}
+                    className="project-tech-badge"
+                    title={`${technology.name} • ${technology.category}`}
+                >
 
-                                        {typeof technology === "string"
-                                            ? technology
-                                            : technology.name}
-
-                                    </span>
-
-                                ))}
-
-                            </div>
-
-                        </div>
-
+                    {technology.icon && (
+                        <span className="project-tech-icon">
+                            {/* Your SkillIcon can render the technology icon */}
+                            <SkillIcon
+                                name={technology.icon}
+                                size={18}
+                            />
+                        </span>
                     )}
 
+                    <span className="project-tech-name">
+                        {technology.name}
+                    </span>
+
+                </div>
+
+            ))}
+
+        </div>
+
+    </div>
+
+)}
 
                     {/* =================================================
                         ACTIONS

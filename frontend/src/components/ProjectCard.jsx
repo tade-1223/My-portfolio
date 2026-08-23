@@ -24,30 +24,46 @@ function ProjectCard({ project }) {
                 PROJECT IMAGE
             ========================== */}
 
-            <div className="project-image">
+            <Link
+                to={`/projects/${project.id}`}
+                className="project-image-link"
+                aria-label={`View ${project.title} project`}
+            >
 
-                {imageUrl ? (
-                    <img
-                        src={imageUrl}
-                        alt={project.title}
-                    />
-                ) : (
-                    <div className="project-placeholder">
-                        {project.title?.charAt(0)}
+                <div className="project-image">
+
+                    {imageUrl ? (
+
+                        <img
+                            src={imageUrl}
+                            alt={`${project.title} project preview`}
+                            loading="lazy"
+                        />
+
+                    ) : (
+
+                        <div className="project-placeholder">
+                            {project.title?.charAt(0)}
+                        </div>
+
+                    )}
+
+
+                    {/* FUNCTIONAL OVERLAY */}
+
+                    <div className="project-image-overlay">
+
+                        <span>
+                            View Project
+                        </span>
+
+                        <ArrowUpRight size={20} />
+
                     </div>
-                )}
-
-                <div className="project-image-overlay">
-
-                    <span>
-                        View Project
-                    </span>
-
-                    <ArrowUpRight size={20} />
 
                 </div>
 
-            </div>
+            </Link>
 
 
             {/* =========================
@@ -57,7 +73,7 @@ function ProjectCard({ project }) {
             <div className="project-content">
 
                 <div className="project-number">
-                    PROJECT
+                    SELECTED PROJECT
                 </div>
 
 
@@ -66,12 +82,17 @@ function ProjectCard({ project }) {
                 </h3>
 
 
-                <p>
-                    {project.description}
+                {/* PROJECT DESCRIPTION */}
+
+                <p className="project-description">
+
+                    {project.description ||
+                        "A practical software project focused on solving real-world problems through modern technology, thoughtful system design, and a user-centered experience."}
+
                 </p>
 
 
-                {/* Technologies */}
+                {/* TECHNOLOGIES */}
 
                 {project.technologies &&
                     project.technologies.length > 0 && (
@@ -81,42 +102,53 @@ function ProjectCard({ project }) {
                         {project.technologies.map(
                             (technology, index) => (
 
-                            <span
-                                key={
-                                    technology.id ||
-                                    index
-                                }
-                            >
-                                {typeof technology === "string"
-                                    ? technology
-                                    : technology.name}
-                            </span>
+                                <span
+                                    key={
+                                        technology.id ||
+                                        index
+                                    }
+                                >
 
-                        ))}
+                                    {typeof technology === "string"
+                                        ? technology
+                                        : technology.name}
+
+                                </span>
+
+                            )
+                        )}
 
                     </div>
                 )}
 
 
                 {/* =========================
-                    LINKS
+                    PROJECT LINKS
                 ========================== */}
 
                 <div className="project-links">
+
+
+                    {/* INTERNAL PROJECT DETAILS */}
 
                     <Link
                         to={`/projects/${project.id}`}
                         className="project-details-link"
                     >
 
-                        View Details
+                        <span>
+                            View Details
+                        </span>
 
                         <ArrowUpRight size={17} />
 
                     </Link>
 
 
+                    {/* EXTERNAL LINKS */}
+
                     <div className="project-external-links">
+
 
                         {project.github_url && (
 
@@ -124,7 +156,8 @@ function ProjectCard({ project }) {
                                 href={project.github_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="GitHub"
+                                aria-label={`${project.title} GitHub repository`}
+                                title="GitHub Repository"
                             >
 
                                 <FaGithub size={18} />
@@ -140,7 +173,8 @@ function ProjectCard({ project }) {
                                 href={project.live_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Live Demo"
+                                aria-label={`${project.title} live demo`}
+                                title="Live Demo"
                             >
 
                                 <ExternalLink size={18} />
@@ -156,9 +190,14 @@ function ProjectCard({ project }) {
             </div>
 
 
-            {/* Decorative glow */}
+            {/* =========================
+                DECORATIVE GLOW
+            ========================== */}
 
-            <div className="project-card-glow"></div>
+            <div
+                className="project-card-glow"
+                aria-hidden="true"
+            />
 
         </article>
     );

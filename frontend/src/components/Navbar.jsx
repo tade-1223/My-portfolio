@@ -14,16 +14,19 @@ function Navbar() {
 
 
     const navClass = ({ isActive }) =>
-        isActive ? "nav-link active" : "nav-link";
+        isActive
+            ? "nav-link active"
+            : "nav-link";
 
 
     return (
-
         <header className="navbar">
 
             <div className="container navbar-container">
 
-                {/* LOGO */}
+                {/* =====================================================
+                    LOGO
+                ===================================================== */}
 
                 <Link
                     to="/"
@@ -31,11 +34,19 @@ function Navbar() {
                     onClick={closeMenu}
                     aria-label="Tadesse Belay home"
                 >
-                    TB<span>.</span>
+                    <span className="logo-main">
+                        TB
+                    </span>
+
+                    <span className="logo-dot">
+                        .
+                    </span>
                 </Link>
 
 
-                {/* NAVIGATION */}
+                {/* =====================================================
+                    DESKTOP / MOBILE NAVIGATION
+                ===================================================== */}
 
                 <nav
                     className={
@@ -94,12 +105,16 @@ function Navbar() {
                 </nav>
 
 
-                {/* MOBILE BUTTON */}
+                {/* =====================================================
+                    MOBILE MENU BUTTON
+                ===================================================== */}
 
                 <button
                     type="button"
                     className="menu-button"
-                    onClick={() => setOpen((previous) => !previous)}
+                    onClick={() =>
+                        setOpen((previous) => !previous)
+                    }
                     aria-label={
                         open
                             ? "Close navigation menu"
@@ -109,9 +124,9 @@ function Navbar() {
                 >
 
                     {open ? (
-                        <X size={25} />
+                        <X size={24} />
                     ) : (
-                        <Menu size={25} />
+                        <Menu size={24} />
                     )}
 
                 </button>

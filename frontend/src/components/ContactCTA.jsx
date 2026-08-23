@@ -14,19 +14,28 @@ function ContactCTA({ profile }) {
                     <div className="contact-cta-content">
 
                         <p className="section-eyebrow">
-                            GET IN TOUCH
+                            LET'S CONNECT
                         </p>
 
                         <h2>
-                            Let's build something
-                            meaningful together.
+                            Have an idea, opportunity,
+                            or project in mind?
                         </h2>
 
                         <p>
-                            I'm open to software engineering,
-                            full-stack development, and other
-                            opportunities where I can contribute
-                            and continue growing.
+                            I'm open to software development
+                            opportunities, collaborations,
+                            and interesting technology projects.
+                            If you're looking for someone who
+                            enjoys learning, building, and solving
+                            real-world problems, I'd be happy to
+                            connect.
+                        </p>
+
+                        <p className="contact-cta-location">
+                            Based in Addis Ababa, Ethiopia
+                            <span>•</span>
+                            Open to opportunities
                         </p>
 
                     </div>
@@ -38,7 +47,7 @@ function ContactCTA({ profile }) {
                             to="/contact"
                             className="btn btn-primary"
                         >
-                            Contact Me
+                            Get In Touch
                             <ArrowRight size={18} />
                         </Link>
 
