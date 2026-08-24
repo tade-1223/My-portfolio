@@ -77,17 +77,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    "default": dj_database_url.config(
-        default=(
-            f"postgresql://{config('DB_USER')}:"
-            f"{config('DB_PASSWORD')}@"
-            f"{config('DB_HOST')}:"
-            f"{config('DB_PORT')}/"
-            f"{config('DB_NAME')}"
-        ),
-        conn_max_age=600,
-        conn_health_checks=True,
+    "default": dj_database_url.parse(
+        config("DATABASE_URL")
     )
 }
 
