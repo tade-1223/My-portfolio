@@ -1,0 +1,281 @@
+
+[
+{
+  "model": "projects.technology",
+  "pk": 1,
+  "fields": {
+    "name": "React",
+    "category": "frontend",
+    "icon": ""
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 2,
+  "fields": {
+    "name": "Django",
+    "category": "backend",
+    "icon": ""
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 3,
+  "fields": {
+    "name": "Python",
+    "category": "backend",
+    "icon": "python"
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 4,
+  "fields": {
+    "name": "PostgreSQL",
+    "category": "database",
+    "icon": "postgresql"
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 5,
+  "fields": {
+    "name": "JavaScript",
+    "category": "frontend",
+    "icon": "javascript"
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 6,
+  "fields": {
+    "name": "Git",
+    "category": "tools",
+    "icon": "git"
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 7,
+  "fields": {
+    "name": "Github",
+    "category": "tools",
+    "icon": "github"
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 8,
+  "fields": {
+    "name": "Docker",
+    "category": "devops",
+    "icon": "docker"
+  }
+},
+{
+  "model": "projects.technology",
+  "pk": 9,
+  "fields": {
+    "name": "Mysql",
+    "category": "database",
+    "icon": "mysql"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 1,
+  "fields": {
+    "title": "My Portfolio",
+    "slug": "my-portfolio",
+    "short_description": "Full-stack developer portfolio powered by React and Django",
+    "description": "A full-stack personal portfolio platform built to showcase my software development experience, technical skills, projects, and professional background. The application uses React and Vite to provide a responsive and interactive frontend, while Django and Django REST Framework power the backend API. PostgreSQL is used for persistent data storage, allowing profile information, skills, projects, blog posts, and other portfolio content to be managed dynamically rather than being hardcoded into the frontend.",
+    "image": "projects/portfolio.jpg",
+    "github_url": "https://github.com/tade-1223/My-portfolio/tree/master",
+    "live_url": "",
+    "featured": true,
+    "status": "in_progress",
+    "created_at": "2026-08-16T19:43:29.130Z",
+    "updated_at": "2026-08-23T13:19:31.256Z",
+    "technologies": [
+      2,
+      6,
+      7,
+      5,
+      4,
+      1
+    ]
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 2,
+  "fields": {
+    "title": "Ethiora",
+    "slug": "ethiora",
+    "short_description": "Ethiopian marketplace for local products and digital commerce",
+    "description": "Ethiora is an Ethiopian-focused marketplace designed to connect buyers and sellers through a modern digital commerce experience. The platform provides product discovery, category-based browsing, search and filtering, detailed product pages, featured products, new arrivals, special deals, and dedicated collections for Ethiopian local products. The application is built with a React frontend and Python-based backend architecture, with PostgreSQL providing persistent data storage.",
+    "image": "projects/ethiora.jpg",
+    "github_url": "https://github.com/tade-1223/TB-Shop/",
+    "live_url": "",
+    "featured": true,
+    "status": "in_progress",
+    "created_at": "2026-08-16T20:57:12.488Z",
+    "updated_at": "2026-08-23T05:21:09.871Z",
+    "technologies": [
+      6,
+      7,
+      5,
+      4,
+      3,
+      1
+    ]
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 3,
+  "fields": {
+    "title": "AI-Based E-Learning and Remote Education System",
+    "slug": "ai-based-e-learning-and-remote-education-system",
+    "short_description": "learning platform",
+    "description": "An AI-powered e-learning and remote education platform designed to support students and instructors through accessible digital learning tools. The system provides course management, digital educational resources, assignment submission, remote learning capabilities, and intelligent AI-assisted learning support. It combines a modern React frontend with a Django backend and PostgreSQL database, with Docker used to support development and deployment workflows.",
+    "image": "projects/learning.jpg",
+    "github_url": "https://github.com/tade-1223/AI-based-E-learning-and-Remote-Education-Platform",
+    "live_url": "",
+    "featured": true,
+    "status": "completed",
+    "created_at": "2026-08-18T03:25:33.715Z",
+    "updated_at": "2026-08-23T05:18:28.690Z",
+    "technologies": [
+      2,
+      8,
+      6,
+      7,
+      5,
+      4,
+      3,
+      1
+    ]
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 1,
+  "fields": {
+    "title": "Building My First Full-Stack Portfolio with Django and React",
+    "slug": "building-my-first-full-stack-portfolio-with-django-and-react",
+    "excerpt": "Building a professional portfolio",
+    "content": "Building a professional portfolio is more than creating a simple\r\nwebsite. I wanted to build a real full-stack application using\r\nDjango and React.\r\n\r\nDjango provides the backend API, database management, authentication,\r\nand administration interface, while React provides the interactive\r\nfrontend experience.\r\n\r\nThis project is helping me improve my skills in REST APIs,\r\nPostgreSQL, React, JavaScript, deployment, and software architecture.\r\n\r\nThe goal is to create a portfolio that demonstrates not only what\r\nI have learned, but also what I can build.",
+    "image": "blog/portfolio.jpg",
+    "published": true,
+    "published_at": "2026-08-18T05:41:16Z",
+    "created_at": "2026-08-18T05:43:18.259Z",
+    "updated_at": "2026-08-20T20:45:27.894Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 2,
+  "fields": {
+    "title": "What I Learned Building an AI-Based E-Learning System",
+    "slug": "what-i-learned-building-an-ai-based-e-learning-system",
+    "excerpt": "Lessons from developing an AI-based e-learning and remote education system as my final-year Computer Science project.",
+    "content": "My final-year project was an AI-Based E-Learning and Remote Education System designed to support online learning and remote education.\r\n\r\nThe system included features for course management, assignments, virtual learning, and an AI assistant. The goal was to create a platform that could provide students and instructors with a more interactive digital learning environment.\r\n\r\nDuring development, I worked on system design, frontend development, backend integration, database management, and testing.\r\n\r\nOne of the biggest lessons I learned was that building a software system is not only about writing code. Understanding requirements, designing the system properly, organizing the database, testing features, and handling errors are equally important.\r\n\r\nThe project also increased my interest in Artificial Intelligence and Machine Learning. I became more interested in how intelligent systems can be integrated into web applications to provide personalized and useful experiences.\r\n\r\nThis project gave me practical experience that I can continue building upon as I grow as a software developer.",
+    "image": "blog/learning.jpg",
+    "published": false,
+    "published_at": "2026-05-17T06:00:00Z",
+    "created_at": "2026-08-20T19:10:35.159Z",
+    "updated_at": "2026-08-20T20:46:34.078Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 3,
+  "fields": {
+    "title": "Building Ethiora: An Ethiopian Online Marketplace",
+    "slug": "building-ethiora-an-ethiopian-online-marketplace",
+    "excerpt": "The story behind Ethiora, an online marketplace project focused on connecting Ethiopian products and customers through technology.",
+    "content": "Ethiora is an online marketplace project I am currently developing.\r\n\r\nThe idea behind Ethiora is to create a digital marketplace that can connect customers with products while giving local businesses and sellers an opportunity to reach more people through the internet.\r\n\r\nThe project uses modern web technologies and focuses on creating a clean, responsive, and user-friendly shopping experience.\r\n\r\nWhile developing Ethiora, I have been working on important e-commerce concepts such as product categories, product details, search, filtering, product images, and frontend-backend communication.\r\n\r\nThe project is currently in progress, so I am continuing to improve its functionality, design, and backend architecture.\r\n\r\nEthiora is particularly important to me because it combines software development with a practical problem: using technology to create opportunities for local commerce.",
+    "image": "blog/ethioraa.jpg",
+    "published": false,
+    "published_at": "2026-06-20T19:12:34Z",
+    "created_at": "2026-08-20T19:12:59.830Z",
+    "updated_at": "2026-08-20T21:03:52.398Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 4,
+  "fields": {
+    "title": "My Journey Through Education",
+    "slug": "my-journey-through-education",
+    "excerpt": "\"Where you start does not have to determine where you finish.\"",
+    "content": "FROM A RURAL VILLAGE TO ADDIS ABABA: MY JOURNEY THROUGH EDUCATION\r\n\r\nMy journey into technology did not begin in a modern city, a computer laboratory, or a wealthy family. It began in a rural area of Ethiopia, where life was simple, opportunities were limited, and education was not always easy to access.\r\n\r\nI was born and raised in a rural community. My father is a farmer, and my mother is a seller/vendor. My family worked hard to support our lives, but like many families in rural areas, providing everything needed for education was not always easy.\r\n\r\nTHE BEGNINING OF MY EDUCATION\r\n\r\nWhen I started Grade 1, I was already aware that education was important, even though I did not fully understand where it could take me.\r\n\r\nAs I progressed from one grade to another, my family continued to face financial challenges. Supporting a child's education requires school materials, clothing, transportation, food, and many other expenses. For my family, these things were not always easy to provide.\r\n\r\nThere were times when continuing my education was difficult. However, my parents continued doing what they could. My father's work as a farmer and my mother's work as a seller/vendor were important sources of support for our family.\r\n\r\nTheir sacrifices became part of my motivation.\r\n\r\nGROWING THROUGN DIFFICUILTIES\r\nFrom primary school through secondary school, I learned that education is not only about what happens inside a classroom. It is also about persistence.\r\n\r\nI had to continue learning despite difficulties. I had to understand that my circumstances did not have to determine my future.\r\n\r\nAs I moved through school, my goals became clearer. I began to understand that education could give me opportunities that were not available in my rural community.\r\n\r\nThe dream of continuing my education became stronger.\r\n\r\nGRADE 8 � THE FIRST MAJOR STEP\r\n\r\nCompleting Grade 8 and receiving my primary school leaving certificate was an important milestone.\r\n\r\nAt that stage, I had already come a long way from the beginning of my education. It gave me confidence that I could continue moving forward despite the challenges around me.\r\n\r\nI knew that there would be more challenges ahead, but I also knew that stopping was not an option.\r\n\r\nGRADE 12 � A BIGGER CHALLENGE\r\n\r\nIn 2023, I completed the Ethiopian Secondary School Leaving Certificate Examination.\r\n\r\nGrade 12 was another important stage in my journey. Secondary education required more effort, greater responsibility, and stronger determination.\r\n\r\nBy this point, I was thinking seriously about university and my future career.\r\n\r\nI wanted to study something that would allow me to create opportunities for myself and eventually help my family.\r\n\r\nUNIVERSITY� ENTERING A NEW WORLD\r\n\r\nAfter completing secondary school, I continued my education at the University of Gondar, where I studied Computer Science.\r\n\r\nUniversity was a major change in my life.\r\n\r\nI moved from the environment I had known into a much larger academic and social environment. I was exposed to computers, programming, software development, networking, databases, artificial intelligence, and many other areas of technology.\r\n\r\nAt first, many things were new and challenging.\r\n\r\nBut every challenge became an opportunity to learn.\r\n\r\nI started building software projects, learning programming languages, working with databases, developing websites, and understanding how modern technology can solve real-world problems.\r\n\r\nFROM RURAL LIFE TO ADDIS ABABA\r\n\r\nToday, I live in Addis Ababa.\r\n\r\nWhen I look back, the difference between where I started and where I am today is significant.\r\n\r\nI started my journey in a rural community with limited opportunities. Today, I am a Computer Science graduate living in Ethiopia's capital and working toward building a career in software development and technology.\r\n\r\nBut I do not see Addis Ababa as the end of my journey.\r\n\r\nIt is another beginning.\r\n\r\nMy Parents' Sacrifice\r\n\r\nBehind my journey are two people who deserve recognition: my father and my mother.\r\n\r\nMy father is a farmer.\r\n\r\nMy mother is a seller/vendor.\r\n\r\nThey may not have worked in technology or had the opportunities that I have today, but their work and sacrifices helped make my education possible.\r\n\r\nTheir lives remind me that progress does not happen overnight.\r\n\r\nSometimes it begins with parents working every day so their children can have opportunities that they themselves did not have.\r\n\r\nI carry that sacrifice with me.\r\n\r\nMY GOAL NOW\r\n\r\nOne of my biggest goals now is to build a successful career and use what I have learned to improve my family's financial situation.\r\n\r\nI do not want my education to benefit only me.\r\n\r\nI want the knowledge and skills I have gained to create opportunities for my family and, eventually, for other people as well.\r\n\r\nThat is one of the reasons I continue learning software development, artificial intelligence, cybersecurity, and other areas of technology.\r\n\r\nI know that becoming successful will take time.\r\n\r\nThere will be rejection, mistakes, failures, and difficult days.\r\n\r\nBut I have already learned something important from my journey:\r\n\r\nWhere you start does not have to determine where you finish.\r\n\r\nI started in a rural area.\r\n\r\nI grew up in a family supported by farming and small-scale selling.\r\n\r\nI faced difficulties throughout my education.\r\n\r\nI continued through primary school, secondary school, and university.\r\n\r\nNow I am building my career in Addis Ababa.\r\n\r\nMy story is still being written.\r\n\r\nAnd this is only the beginning.",
+    "image": "blog/my-journey.jpg",
+    "published": true,
+    "published_at": "2026-08-20T19:46:43Z",
+    "created_at": "2026-08-20T19:47:27.541Z",
+    "updated_at": "2026-08-20T20:20:34.635Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 5,
+  "fields": {
+    "title": "React and Django: Why I Like Full-Stack Development",
+    "slug": "react-and-django-why-i-like-full-stack-development",
+    "excerpt": "Why combining React and Django has become one of the technologies I enjoy using for web application development.",
+    "content": "React and Django provide a powerful combination for building modern web applications.\r\n\r\nReact is useful for creating interactive user interfaces and reusable components. Django, on the other hand, provides a strong backend framework with features for databases, authentication, APIs, and application logic.\r\n\r\nIn my projects, I use React to communicate with backend APIs and dynamically display information such as projects, skills, blog posts, and profile information.\r\n\r\nWorking with both frontend and backend technologies has helped me understand how different parts of a web application communicate with each other.\r\n\r\nI have also learned that full-stack development requires more than knowing individual technologies. A developer needs to understand how the frontend, backend, database, APIs, authentication, deployment, and security work together.\r\n\r\nThis is one of the reasons I continue to develop full-stack projects as I improve my software engineering skills.",
+    "image": "blog/react-django_I2F45e1.jpg",
+    "published": true,
+    "published_at": "2025-09-08T06:00:00Z",
+    "created_at": "2026-08-20T19:53:10.714Z",
+    "updated_at": "2026-08-20T20:23:50.330Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 6,
+  "fields": {
+    "title": "From HTML and CSS to Full-Stack Development",
+    "slug": "from-html-and-css-to-full-stack-development",
+    "excerpt": "How learning the fundamentals of web development gradually led me toward full-stack application development.",
+    "content": "My journey into web development started with the fundamentals: HTML, CSS, and JavaScript.\r\n\r\nHTML taught me how to structure web pages. CSS helped me understand layout, responsive design, animations, and visual presentation. JavaScript introduced me to programming for interactive web applications.\r\n\r\nAs my skills improved, I started learning React and component-based development. Later, I explored backend technologies such as Node.js, Django, and FastAPI, as well as databases including PostgreSQL, MySQL, and SQLite.\r\n\r\nThe transition from simple web pages to full-stack applications was challenging, but each project helped me understand how the technologies connect.\r\n\r\nToday, I enjoy working across the frontend and backend because it allows me to understand an application as a complete system rather than focusing on only one layer.",
+    "image": "blog/portfolio",
+    "published": true,
+    "published_at": "2023-01-10T18:00:00Z",
+    "created_at": "2026-08-20T19:54:49.915Z",
+    "updated_at": "2026-08-25T17:59:46.290Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 7,
+  "fields": {
+    "title": "What I Learned About APIs While Building My Portfolio",
+    "slug": "what-i-learned-about-apis-while-building-my-portfolio",
+    "excerpt": "A practical explanation of how APIs connect the React frontend with the Django backend in my portfolio.",
+    "content": "One of the most important concepts I learned while building my portfolio was how frontend applications communicate with backend systems through APIs.\r\n\r\nInstead of placing all of my portfolio information directly inside React components, I created backend APIs that provide information about my profile, skills, projects, and blog posts.\r\n\r\nThe React application sends requests to the Django backend and receives data from the API. The frontend then displays that information dynamically.\r\n\r\nThis approach makes the application easier to maintain because I can update information from the backend without changing the frontend code.\r\n\r\nWorking with APIs also introduced me to practical concepts such as HTTP requests, JSON responses, error handling, asynchronous JavaScript, and backend routing.\r\n\r\nUnderstanding APIs has become an important part of my full-stack development journey.",
+    "image": "blog/api_2Q5J2fY.jpg",
+    "published": true,
+    "published_at": "2026-08-02T19:55:41Z",
+    "created_at": "2026-08-20T19:55:43.868Z",
+    "updated_at": "2026-08-20T20:22:56.016Z"
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 8,
+  "fields": {
+    "title": "My Experience Learning AI, Machine Learning, and Deep Learning",
+    "slug": "my-experience-learning-ai-machine-learning-and-deep-learning",
+    "excerpt": "Why artificial intelligence became an important part of my software development learning journey.",
+    "content": "Artificial Intelligence and Machine Learning have become areas that I am increasingly interested in as a Computer Science graduate.\r\n\r\nMy interest grew while working on my AI-Based E-Learning and Remote Education System. I became interested in how intelligent systems can be integrated into applications to assist users and improve their experience.\r\n\r\nI have been exploring concepts related to Artificial Intelligence, Machine Learning, and Deep Learning while continuing to strengthen my programming and software engineering fundamentals.\r\n\r\nOne thing I have learned is that AI development requires a strong foundation in programming, mathematics, data, algorithms, and problem solving.\r\n\r\nRather than trying to learn everything at once, I am focusing on building projects and gradually expanding my knowledge.\r\n\r\nMy long-term goal is to combine software engineering with AI to build useful and practical applications.",
+    "image": "blog/ai.jpg",
+    "published": true,
+    "published_at": "2024-10-30T12:00:00Z",
+    "created_at": "2026-08-20T19:56:49.428Z",
+    "updated_at": "2026-08-20T20:21:21.995Z"
+  }
+}
+]
