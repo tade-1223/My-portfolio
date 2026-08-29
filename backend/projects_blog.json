@@ -240,11 +240,11 @@
     "slug": "from-html-and-css-to-full-stack-development",
     "excerpt": "How learning the fundamentals of web development gradually led me toward full-stack application development.",
     "content": "My journey into web development started with the fundamentals: HTML, CSS, and JavaScript.\r\n\r\nHTML taught me how to structure web pages. CSS helped me understand layout, responsive design, animations, and visual presentation. JavaScript introduced me to programming for interactive web applications.\r\n\r\nAs my skills improved, I started learning React and component-based development. Later, I explored backend technologies such as Node.js, Django, and FastAPI, as well as databases including PostgreSQL, MySQL, and SQLite.\r\n\r\nThe transition from simple web pages to full-stack applications was challenging, but each project helped me understand how the technologies connect.\r\n\r\nToday, I enjoy working across the frontend and backend because it allows me to understand an application as a complete system rather than focusing on only one layer.",
-    "image": "blog/portfolio",
+    "image": "blog/html-fsd",
     "published": true,
     "published_at": "2023-01-10T18:00:00Z",
     "created_at": "2026-08-20T19:54:49.915Z",
-    "updated_at": "2026-08-25T17:59:46.290Z"
+    "updated_at": "2026-08-28T16:33:04.925Z"
   }
 },
 {
