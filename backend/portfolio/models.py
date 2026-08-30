@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 
 class Profile(models.Model):
     name = models.CharField(max_length=100)
@@ -21,10 +21,11 @@ class Profile(models.Model):
     website = models.URLField(blank=True)
 
     resume = models.FileField(
-        upload_to="resume/",
-        blank=True,
-        null=True
-    )
+    upload_to="resume/",
+    storage=RawMediaCloudinaryStorage(),
+    blank=True,
+    null=True
+)
 
     updated_at = models.DateTimeField(auto_now=True)
 
