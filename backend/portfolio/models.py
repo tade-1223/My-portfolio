@@ -176,10 +176,11 @@ class Certification(models.Model):
     )
 
     certificate_file = models.FileField(
-        upload_to="certificates/",
-        blank=True,
-        null=True
-    )
+    upload_to="certificates/",
+    storage=RawMediaCloudinaryStorage(),
+    blank=True,
+    null=True
+   )
 
     class Meta:
         ordering = ["-issue_date"]

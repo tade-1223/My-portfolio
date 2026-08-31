@@ -276,5 +276,41 @@
     "created_at": "2026-08-20T19:56:49.428Z",
     "updated_at": "2026-08-28T08:29:18.367Z"
   }
+},
+{
+  "model": "portfolio.certification",
+  "pk": 1,
+  "fields": {
+    "name": "Introduction to cybersecurity",
+    "organization": "Cisco Network Academy",
+    "issue_date": "2026-08-01",
+    "credential_id": "4258806e-7271-47e6-a847-272312272326",
+    "credential_url": "https://www.netacad.com/certificates/?issuanceId=4258806e-7271-47e6-a847-272312272326",
+    "certificate_file": "certificates/introduction-to-cybersecurity.pdf"
+  }
+},
+{
+  "model": "portfolio.certification",
+  "pk": 2,
+  "fields": {
+    "name": "Artificial Intelligence Fundamentals",
+    "organization": "Udacity",
+    "issue_date": "2026-03-23",
+    "credential_id": "",
+    "credential_url": "https://www.udacity.com/certificate/e/7a3c7dce-2689-11f1-8ffd-6f2fbbb1dcdb",
+    "certificate_file": "certificates/AI_certificate__udacity.pdf"
+  }
+},
+{
+  "model": "portfolio.certification",
+  "pk": 3,
+  "fields": {
+    "name": "Python",
+    "organization": "freeCodeCamp",
+    "issue_date": "2026-08-07",
+    "credential_id": "",
+    "credential_url": "https://www.freecodecamp.org/certification/tadesse_belay_mekonnen/python-v9",
+    "certificate_file": "certificates/Profile___freeCodeCamp.org.pdf"
+  }
 }
 ]
