@@ -6721,7 +6721,7 @@ a.contact-detail:hover {
     background:
         linear-gradient(
             180deg,
-            #050a12 0%,
+            #050a12 0% 0%,
             #03070d 100%
         );
 
