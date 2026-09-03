@@ -210,9 +210,9 @@ for data in experience_data:
 
 User = get_user_model()
 
-admin_username = os.environ.get("DJANGO_ADMIN_USERNAME")
-admin_email = os.environ.get("DJANGO_ADMIN_EMAIL")
-admin_password = os.environ.get("DJANGO_ADMIN_PASSWORD")
+admin_username = os.environ.get("ADMIN_USERNAME")
+admin_email = os.environ.get("ADMIN_EMAIL")
+admin_password = os.environ.get("ADMIN_PASSWORD")
 
 if admin_username and admin_password:
 
