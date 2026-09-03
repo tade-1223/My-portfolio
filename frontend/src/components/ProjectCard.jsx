@@ -13,7 +13,7 @@ function ProjectCard({ project }) {
     const imageUrl = project.image
         ? project.image.startsWith("http")
             ? project.image
-            : `http://127.0.0.1:8000${project.image}`
+            : `https://my-portfolio-backend-046t.onrender.com${project.image}`
         : null;
 
 

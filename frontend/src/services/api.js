@@ -1,10 +1,19 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://127.0.0.1:8000/api",
+    baseURL: "https://my-portfolio-backend-046t.onrender.com/api",
     headers: {
         "Content-Type": "application/json",
     },
 });
 
 export default api;
+
+
+//import axios from "axios";
+//const api = axios.create({
+ //   baseURL: "https://my-portfolio-backend-046t.onrender.com/api",
+   // headers: {
+       // "Content-Type": "application/json",},
+//});
+//export default api;
