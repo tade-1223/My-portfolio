@@ -10,7 +10,8 @@ python manage.py shell <<'PYTHON'
 from projects.models import Project
 from blog.models import BlogPost
 from portfolio.models import Certification, Education, Experience
-
+from django.contrib.auth import get_user_model
+import os
 
 project_images = {
     "AI-Based E-Learning and Remote Education System": "projects/learning",
@@ -203,10 +204,42 @@ for data in experience_data:
         f"Updated experience: "
         f"{data['position']} -> {data['company']}"
     )
+# ------------------------------------------------------------
+# Ensure production Django admin user exists
+# ------------------------------------------------------------
 
+User = get_user_model()
+
+admin_username = os.environ.get("DJANGO_ADMIN_USERNAME")
+admin_email = os.environ.get("DJANGO_ADMIN_EMAIL")
+admin_password = os.environ.get("DJANGO_ADMIN_PASSWORD")
+
+if admin_username and admin_password:
+
+    admin_user, created = User.objects.get_or_create(
+        username=admin_username,
+        defaults={
+            "email": admin_email or "",
+        },
+    )
+
+    admin_user.email = admin_email or admin_user.email
+    admin_user.is_staff = True
+    admin_user.is_superuser = True
+    admin_user.set_password(admin_password)
+    admin_user.save()
+
+    if created:
+        print(f"Created production admin user: {admin_username}")
+    else:
+        print(f"Updated production admin user: {admin_username}")
+
+else:
+    print("Production admin environment variables are not configured.")
 
 print("Education and experience records updated successfully.")
 print("Cloudinary references and portfolio data checked successfully.")
 PYTHON
+
 
 python manage.py collectstatic --no-input
